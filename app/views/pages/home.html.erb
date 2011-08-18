@@ -1,4 +1,6 @@
-<h1>Sample App</h1>
-<p>This is the home page for the RoR tutorial sample application</p>
+<h1>Library</h1>
+<p>Home page</p>
 
-<%= link_to "Sign up now!", signup_path, :class => "signup_button round" %>
+<% if !signed_in? %>
+ <%= link_to "Sign up now!", signup_path, :class => "signup_button round" %>
+<% end %>

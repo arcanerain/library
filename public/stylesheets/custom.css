@@ -183,3 +183,9 @@ div.field, div.actions {
     font-size: 12px;
     list-style: square;
 }
+
+/* Lib */
+
+.centered {
+    text-align: center
+}

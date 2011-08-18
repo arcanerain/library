@@ -1,0 +1,32 @@
+<h1>Library</h1>
+
+<table>
+  <tr>
+    <th class = "centered" >Title</th>
+    <th class = "centered" >Description</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @libraries.each do |library| %>
+  <tr>
+    <td><%= library.title %></td>
+    <td><%= library.description %></td>
+    <% if signed_in? %>
+        <td><%= link_to 'Show', library %></td>
+        <td><%= link_to 'Edit', edit_library_path(library) %></td>
+        <td><%= link_to 'Destroy', library, :confirm => 'Are you sure?', :method => :delete %></td>
+    <% end %>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<% if signed_in? %>
+ <%= render 'search' %><br />
+ <%= link_to 'Add a book', new_library_path %>
+<% else %>
+ <%= link_to "Sign up now!", signup_path, :class => "signup_button round" %>
+<% end %>

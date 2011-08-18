@@ -90,13 +90,13 @@ describe User do
     end
 
     it "should reject short passwords" do
-      short = "a" * 5
+      short = "a" * 4
       hash = @attr.merge(:password => short, :password_confirmation => short)
       User.new(hash).should_not be_valid
     end
 
     it "should reject short passwords" do
-      long = "a" * 41
+      long = "a" * 51
       hash = @attr.merge(:password => long, :password_confirmation => long)
       User.new(hash).should_not be_valid
     end
