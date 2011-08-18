@@ -9,6 +9,11 @@ class LibrariesController < ApplicationController
       @libraries = Library.search params[:title]
     end
 
+    if(params[:c] && params[:d])
+      order = "#{params[:c]} #{params[:d] == 'down' ? 'DESC' : 'ASC'}"
+      @libraries = Library.find(:all, :order => order)
+    end
+
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @libraries }
@@ -86,5 +91,6 @@ class LibrariesController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
 
 end
