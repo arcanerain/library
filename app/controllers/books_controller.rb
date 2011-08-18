@@ -1,18 +1,29 @@
 class BooksController < ApplicationController
+
+  helper_method :sort_column, :sort_direction
+
   # GET /books
   # GET /books.xml
   def index
+
     @title = "Home"
-    if(params[:title].nil?)
-      @books = Book.all
-    else
+
+    @books = Book.order(sort_column + " " + sort_direction)
+
+    if(!params[:title].nil?)
       @books = Book.search params[:title]
     end
 
-    if(params[:c] && params[:d])
-      order = "#{params[:c]} #{params[:d] == 'down' ? 'DESC' : 'ASC'}"
-      @books = Book.find(:all, :order => order)
-    end
+#    if(params[:title].nil?)
+#      @books = Book.all
+#    else
+#      @books = Book.search params[:title]
+#    end
+#
+#    if(params[:c] && params[:d])
+#      order = "#{params[:c]} #{params[:d] == 'down' ? 'DESC' : 'ASC'}"
+#      @books = Book.find(:all, :order => order)
+#    end
 
   end
 
@@ -89,5 +100,14 @@ class BooksController < ApplicationController
     end
   end
 
+  private
+
+  def sort_column
+    Book.column_names.include?(params[:sort]) ? params[:sort] : "title"
+  end
+
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ?  params[:direction] : "asc"
+  end
 
 end

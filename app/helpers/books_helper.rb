@@ -1,9 +1,9 @@
 module BooksHelper
 
-  def sort_link(title, column, options = {})
-    condition = options[:unless] if options.has_key?(:unless)
-    sort_dir = params[:d] == 'up' ? 'down' : 'up'
-    link_to_unless condition, title, request.parameters.merge( {:c => column, :d => sort_dir} )
+  def sort_link(column, title = nil)
+    title ||= column.titleize
+    direction = sort_direction == "asc" ? "desc" : "asc"
+    link_to title, :sort => column, :direction => direction
   end
 
 end

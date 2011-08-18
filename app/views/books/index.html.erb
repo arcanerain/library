@@ -1,9 +1,9 @@
 <h1>Books</h1>
 
-<table>
+<table class="pretty">
   <tr>
-    <td class = "centered" ><%= sort_link 'Title', :title %></td>
-    <td class = "centered" ><%= sort_link 'Description', :description %></td>
+    <td class = "centered" ><%= sort_link "title" %></td>
+    <td class = "centered" ><%= sort_link "description" %></td>
     <td class = "centered" style="width:60px">Authors</td>
     <% if signed_in? %>
         <td></td>
