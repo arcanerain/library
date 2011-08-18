@@ -2,11 +2,13 @@
 
 <table>
   <tr>
-    <th class = "centered" >Name</th>
-    <th class = "centered">Books</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <td class = "centered" >Name</td>
+    <td class = "centered">Books</td>
+    <% if signed_in? %>
+        <td></td>
+        <td></td>
+        <td></td>
+    <% end %>
   </tr>
 
 <% @authors.each do |author| %>

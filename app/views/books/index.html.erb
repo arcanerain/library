@@ -2,12 +2,14 @@
 
 <table>
   <tr>
-    <th class = "centered" ><%= sort_link 'Title', :title %></th>
-    <th class = "centered" ><%= sort_link 'Description', :description %></th>
-    <th class = "centered" style="width:60px">Authors</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <td class = "centered" ><%= sort_link 'Title', :title %></td>
+    <td class = "centered" ><%= sort_link 'Description', :description %></td>
+    <td class = "centered" style="width:60px">Authors</td>
+    <% if signed_in? %>
+        <td></td>
+        <td></td>
+        <td></td>
+    <% end %>
   </tr>
 
 <% @books.each do |book| %>
