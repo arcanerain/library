@@ -1,4 +1,4 @@
-module LibrariesHelper
+module BooksHelper
 
   def sort_link(title, column, options = {})
     condition = options[:unless] if options.has_key?(:unless)

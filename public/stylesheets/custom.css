@@ -182,6 +182,7 @@ div.field, div.actions {
 #error_explanation ul li {
     font-size: 12px;
     list-style: square;
+    margin-top: 5px;
 }
 
 /* Lib */

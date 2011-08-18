@@ -1,4 +1,4 @@
 require 'spec_helper'
 
-describe Library do
+describe "Authors" do
 end

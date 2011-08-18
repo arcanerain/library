@@ -1,4 +1,4 @@
 require 'spec_helper'
 
-describe "Libraries" do
+describe Book do
 end

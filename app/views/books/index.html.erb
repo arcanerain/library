@@ -1,0 +1,42 @@
+<h1>Books</h1>
+
+<table>
+  <tr>
+    <th class = "centered" ><%= sort_link 'Title', :title %></th>
+    <th class = "centered" ><%= sort_link 'Description', :description %></th>
+    <th class = "centered" style="width:60px">Authors</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @books.each do |book| %>
+  <tr>
+    <td><%= book.title %></td>
+    <td><%= book.description %></td>
+    <td>
+    <%
+    authors = ""
+    book.authors.each do |author|
+       authors << "-#{author.name}<br />"
+    end
+    %>
+    <%= raw(authors) %>
+    </td>
+    <% if signed_in? %>
+        <td><%= link_to 'Show', book %></td>
+        <td><%= link_to 'Edit', edit_book_path(book) %></td>
+        <td><%= link_to 'Destroy', book, :confirm => 'Are you sure?', :method => :delete %></td>
+    <% end %>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<% if signed_in? %>
+ <%= render 'search' %><br />
+ <%= link_to 'Add a book', new_book_path %>
+<% else %>
+ <%= link_to "Sign up now!", signup_path, :class => "signup_button round" %>
+<% end %>

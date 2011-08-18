@@ -1,13 +1,15 @@
 SampleApp::Application.routes.draw do
 
-  resources :libraries
+  resources :authors
+
+  resources :books
 
   #get "sessions/new"
   resources :sessions, :only => [:new, :create, :destroy]
   resources :users
 
 #  root :to => "pages#home"
-  root :to => "libraries#index"
+  root :to => "books#index"
 
   match '/contact', :to => 'pages#contact'
   match '/about',   :to => 'pages#about'

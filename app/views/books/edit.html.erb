@@ -1,9 +1,9 @@
 <% if signed_in? %>
     <h1>Editing a book</h1>
     <%= render 'form' %>
-    <%= link_to 'Show', @library %> |
+    <%= link_to 'Show', @book %> |
 <% else %>
     <p><%= link_to 'Sign in', signin_path %> to access this page</p>
 <% end %>
 
-<%= link_to 'Back', libraries_path %>
+<%= link_to 'Back', books_path %>
