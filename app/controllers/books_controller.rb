@@ -62,6 +62,7 @@ class BooksController < ApplicationController
   # PUT /books/1
   # PUT /books/1.xml
   def update
+    params[:book][:author_ids] ||= []
     @book = Book.find(params[:id])
 
     respond_to do |format|
