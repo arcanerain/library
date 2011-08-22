@@ -1,38 +1,8 @@
 <h1>Books</h1>
 
-<table class="pretty">
-  <tr>
-    <td class = "centered" ><%= sort_link "title" %></td>
-    <td class = "centered" ><%= sort_link "description" %></td>
-    <td class = "centered" style="width:60px">Authors</td>
-    <% if signed_in? %>
-        <td></td>
-        <td></td>
-        <td></td>
-    <% end %>
-  </tr>
-
-<% @books.each do |book| %>
-  <tr>
-    <td><%= book.title %></td>
-    <td><%= book.description %></td>
-    <td>
-    <%
-    authors = ""
-    book.authors.each do |author|
-       authors << "-#{author.name}<br />"
-    end
-    %>
-    <%= raw(authors) %>
-    </td>
-    <% if signed_in? %>
-        <td><%= link_to 'Show', book %></td>
-        <td><%= link_to 'Edit', edit_book_path(book) %></td>
-        <td><%= link_to 'Destroy', book, :confirm => 'Are you sure?', :method => :delete %></td>
-    <% end %>
-  </tr>
-<% end %>
-</table>
+<div id = "books_list">
+    <%= render "books/books" %>
+</div>
 
 <br />
 

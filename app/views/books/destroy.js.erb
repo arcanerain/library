@@ -1,0 +1,2 @@
+$("#books_list").before('<div class = "flash success"><%= escape_javascript(flash.delete(:success)) %></div>');
+$("#books_list").html("<%= escape_javascript(render(:partial => "books")) %>");

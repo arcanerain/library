@@ -1,36 +1,8 @@
 <h1>Listing authors</h1>
 
-<table>
-  <tr>
-    <td class = "centered" >Name</td>
-    <td class = "centered">Books</td>
-    <% if signed_in? %>
-        <td></td>
-        <td></td>
-        <td></td>
-    <% end %>
-  </tr>
-
-<% @authors.each do |author| %>
-  <tr>
-    <td><%= author.name %></td>
-    <td>
-    <%
-    books = ""
-    author.books.each do |book|
-       books << "-#{book.title} <br />"
-    end
-    %>
-    <%= raw(books) %>
-    </td>
-    <% if signed_in? %>
-        <td><%= link_to 'Show', author %></td>
-        <td><%= link_to 'Edit', edit_author_path(author) %></td>
-        <td><%= link_to 'Destroy', author, :confirm => 'Are you sure?', :method => :delete %></td>
-    <% end %>
-  </tr>
-<% end %>
-</table>
+<div id = "authors_list">
+    <%= render "authors/authors" %>
+</div>
 
 <br />
 

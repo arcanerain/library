@@ -93,11 +93,15 @@ class BooksController < ApplicationController
     if !current_user.nil?
       @book = Book.find(params[:id])
       @book.destroy
+
+      flash[:success] = "Successfully deleted!"
+
+      @books = Book.all
     end
-    respond_to do |format|
-      format.html { redirect_to(books_url) }
-      format.xml  { head :ok }
-    end
+#    respond_to do |format|
+#      format.html { redirect_to(books_url) }
+#      format.xml  { head :ok }
+#    end
   end
 
   private

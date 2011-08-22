@@ -70,9 +70,12 @@ class AuthorsController < ApplicationController
     @author = Author.find(params[:id])
     @author.destroy
 
-    respond_to do |format|
-      format.html { redirect_to(authors_url) }
-      format.xml  { head :ok }
-    end
+    flash[:success] = "Successfully deleted!"
+
+    @authors = Author.all
+#    respond_to do |format|
+#      format.html { redirect_to(authors_url) }
+#      format.xml  { head :ok }
+#    end
   end
 end
