@@ -5,8 +5,16 @@ class Book < ActiveRecord::Base
 
   validates :title, :presence => true
 
+#  def self.search(search)
+#    find(:all, :conditions => ['title LIKE ?', "#{search}"])
+#  end
+
   def self.search(search)
-    find(:all, :conditions => ['title LIKE ?', "#{search}"])
+  if search
+    where('title LIKE ?', "%#{search}%")
+  else
+    scoped
   end
+end
 
 end

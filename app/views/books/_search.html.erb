@@ -1,5 +1,7 @@
-<%= form_tag("/", :method => "get") do %>
-  <%= label_tag(:search, "Search for exact title:") %> <br />
-  <%= text_field_tag(:title) %>
-  <%= submit_tag("Search") %>
+<%= form_tag books_path, :method => 'get', :id => "books_search" do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
 <% end %>
+
