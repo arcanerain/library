@@ -8,12 +8,9 @@ class BooksController < ApplicationController
 
     @title = "Home"
 
-    @books = Book.order(sort_column + " " + sort_direction)
+    @books = Book.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:per_page => 5, :page => params[:page])
 
-    if(!params[:title].nil?)
-      @books = Book.search params[:title]
-    end
-
+    
 #    if(params[:title].nil?)
 #      @books = Book.all
 #    else

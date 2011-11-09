@@ -1,8 +1,11 @@
 <h1>Books</h1>
 
-<div id = "books_list">
-    <%= render "books/books" %>
+<%#TODO Ajax%>
+<div id = "books">
+    <%= render "books" %>
 </div>
+
+<%= will_paginate @books %> 
 
 <br />
 

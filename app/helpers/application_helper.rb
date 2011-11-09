@@ -1,4 +1,4 @@
-module ApplicationHelper
+ module ApplicationHelper
 
   def title
     base_title = "Library"
