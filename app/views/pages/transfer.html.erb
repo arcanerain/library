@@ -1,0 +1,6 @@
+Totaly moved <%= @moved_to_mysql.count  %> books
+<% if @moved_to_mysql.count > 0 %> : <br />
+  <%  @moved_to_mysql.each do |book| %>
+     &nbsp  -<%= book %> <br />
+  <% end %>
+<% end %>

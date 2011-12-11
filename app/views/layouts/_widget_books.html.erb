@@ -1,0 +1,6 @@
+<section class="round">
+  <h4>Last added books:</h4>
+  <% @widget_books.each do |row| %>
+    <p>— <%= row.title %></p>
+  <% end %>
+</section>

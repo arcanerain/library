@@ -1,8 +1,12 @@
 class AuthorsController < ApplicationController
+  layout "author"
+
   # GET /authors
   # GET /authors.xml
   def index
     @authors = Author.all
+    @widget_books = Book.find(:all, :order => "id desc", :limit => 5, :select => "title").reverse
+    @widget_authors = Author.find(:all, :order => "id desc", :limit => 5, :select => "name").reverse
   end
 
   # GET /authors/1

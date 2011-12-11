@@ -4,6 +4,7 @@
 
 body {
     background-color: #cff;
+    width: 1260px;
 }
 
 header {
@@ -107,10 +108,15 @@ footer {
     width: 710px;
     margin-left: auto;
     margin-right: auto;
+    float: left;
 }
 
 footer nav {
     float: none;
+}
+
+.debug_dump {
+    float: left;
 }
 
 /* User show page */
@@ -189,4 +195,35 @@ div.field, div.actions {
 
 .centered {
     text-align: center
+}
+
+.mycontainer{
+    margin-left: 250px;
+    width: 710px;
+    float: left;
+}
+
+.rightwidgets{
+    float: left;
+    margin: 197px 0 0 20px;
+    width: 250px;
+}
+
+.bottomwidgets {
+    width: 710px;
+}
+
+.bottomwidgets section {
+    width: 250px;
+    float: left;
+    margin-right: 15px;
+}
+
+.rightwidgets p, .bottomwidgets p {
+    font-size: 12px;
+}
+
+.rightwidgets h4, .bottomwidgets h4 {
+    color: blue;
+    font-weight: bold;
 }

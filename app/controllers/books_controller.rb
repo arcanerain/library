@@ -1,5 +1,6 @@
 class BooksController < ApplicationController
 
+  layout "book"
   helper_method :sort_column, :sort_direction
 
   # GET /books
@@ -10,7 +11,9 @@ class BooksController < ApplicationController
 
     @books = Book.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:per_page => 5, :page => params[:page])
 
-    
+    @widget_books = Book.find(:all, :order => "id desc", :limit => 5, :select => "title").reverse
+    @widget_authors = Author.find(:all, :order => "id desc", :limit => 5, :select => "name").reverse
+
 #    if(params[:title].nil?)
 #      @books = Book.all
 #    else
